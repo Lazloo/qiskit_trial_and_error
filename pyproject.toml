@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "qiskit-trial-and-error"
+version = "0.1.0"
+description = ""
+authors = ["Lazloo"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+qiskit = {extras = ["visualization"], version = "^1.2.1"}
+qiskit-ibm-runtime = "^0.29.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
