@@ -1,4 +1,6 @@
 from qiskit import QuantumCircuit
+from matplotlib import pyplot as plt
+from qiskit_ibm_runtime.fake_provider import FakeAlmadenV2
 from qiskit.quantum_info import SparsePauliOp
 from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
 from qiskit_ibm_runtime import EstimatorV2 as Estimator
@@ -22,7 +24,8 @@ qc.cx(0, 1)
 # This example measures expectation values by using the qiskit.quantum_info submodule, which is specified by using
 # operators (mathematical objects used to represent an action or process that changes a quantum state). The following
 # code cell creates six two-qubit Pauli operators: IZ, IX, ZI, XI, ZZ, and XX.
-observables_labels = ["IZ", "IX", "ZI", "XI", "ZZ", "XX"]
+# IZ -> Apply Identity Operator on the first qubit and the Z Operator on the second qubit
+observables_labels = ["IZ", "IX", "ZI", "XI", "ZZ", "XX", "YY"]
 # observables_labels = ["ZZ"]
 observables = [SparsePauliOp(label) for label in observables_labels]
 
@@ -40,8 +43,6 @@ observables = [SparsePauliOp(label) for label in observables_labels]
 # backend = service.least_busy(simulator=False, operational=True)
 
 # LOCAL testing
-from qiskit_ibm_runtime.fake_provider import FakeAlmadenV2
-
 backend = FakeAlmadenV2()
 
 # Convert to an ISA circuit and layout-mapped observables.
@@ -85,7 +86,6 @@ pub_result = job.result()[0]
 
 # Graphical Analysis
 # Plot the result
-from matplotlib import pyplot as plt
 
 values = pub_result.data.evs
 errors = pub_result.data.stds
