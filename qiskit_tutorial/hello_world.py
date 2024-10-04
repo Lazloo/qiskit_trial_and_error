@@ -4,7 +4,6 @@ from qiskit_ibm_runtime.fake_provider import FakeAlmadenV2
 from qiskit.quantum_info import SparsePauliOp
 from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
 from qiskit_ibm_runtime import EstimatorV2 as Estimator
-from qiskit_ibm_runtime import SamplerV2 as Sampler
 
 # Create a new circuit with two qubits
 qc = QuantumCircuit(2)
@@ -66,8 +65,8 @@ mapped_observables = [
 # One pub, with one circuit to run against five different observables.
 job = estimator.run([(isa_circuit, mapped_observables)])
 
-sampler = Sampler(mode=backend)
-sampler.options.default_shots = 1
+# sampler = Sampler(mode=backend)
+# sampler.options.default_shots = 1
 # job_2 = sampler.run([(isa_circuit, mapped_observables)])
 
 # Use the job ID to retrieve your job data later
