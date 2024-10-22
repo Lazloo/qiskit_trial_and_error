@@ -108,4 +108,4 @@ counts = result.get_counts()
 print("Measurement outcomes:", counts)
 
 # Visualize the results
-plot_histogram(counts, filename="hist.png")
+plot_histogram(counts, filename="../qiskit_tutorial/hist.png")

@@ -5,6 +5,7 @@ package-mode = false
 python = "^3.10"
 qiskit = {extras = ["visualization"], version = "^1.2.1"}
 qiskit-ibm-runtime = "^0.29.1"
+qiskit-aer = "^0.15.1"
 
 
 [tool.poetry.group.dev.dependencies]
